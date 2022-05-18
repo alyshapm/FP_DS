@@ -47,9 +47,9 @@ void addMark(char* Name, int courseNo, float mark){
             temp = temp->next;
         }
     }
-}
+} 
 
-void printStudentReport(char* Name, struct Student *temp){
+void printStudentReport(char* Name, struct Student* temp){
     int j;
     if(strcmp(Name, temp->Name) == 0){ // Compares Names in database with the name inputed
         printf("%s \t\t%s \n", temp->Name, temp->noStudents);
@@ -57,17 +57,38 @@ void printStudentReport(char* Name, struct Student *temp){
             printf("\t\t\t\t\tMarks[%d] = %.2f %%\n\n", j+1, temp->Marks[j]);
         }
         printf("\n");
-        return;
     } else{
         printStudentReport(Name, temp->next); // recursively recall function
     }
+}
+
+void studentsReport(struct Student *temp){
+    int j;
+    temp = head;
+    printf("THE REPORT OF ALL STUDENTS IS : \n\n");
+    printf("Name \tStudent Number \tStudent Marks\n\n");
+    
+    while (temp != NULL){
+        printf("%s \t\t%s \n",
+               temp->Name, temp->noStudents);
+        
+        for (j = 0; j < 2; j++)
+            
+        {
+            printf("\t\t\t\tMarks[%d] = %.2f %%\n\n",
+                   j+1, temp->Marks[j]);
+        }
+        
+        temp = temp->next;
+    }
+    return;
 }
 
 // --- MENU --- 
 void displayMenu(){
     printf("ATTENDANCE SYSTEM (LINKED LIST). Enter:");
     printf("\n1. Add student");
-    printf("\n2. Display a student report");
+    printf("\n2. Display student report");
     printf("\n3. Add marks");
     printf("\n4. Exit");
 }
@@ -94,11 +115,7 @@ void menu(int option){
             addStudent(Name, Phone, noStudents, Marks);
             break;
         case 2:
-            printf("Enter name to print: ");
-            scanf("%s", Name);
-            printf("Name \tStudent Number \tStudent Marks\n\n");
-            printStudentReport(Name, head);
-            break;
+            case 5: studentsReport(head); break;
         case 3:
             printf("Enter student name: ");
             scanf("%s", Name);
