@@ -1,21 +1,28 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
-void print_map(map<int, map<string, map<string, int>>> m);
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
 
-map<int, map<string, map<string, int>>> register_student(map<int, map<string, map<string, int>>> m, int ID, string name);
+using namespace std;
 
-void find_student_by_ID(map<int, map<string, map<string, int>>> m, int ID);
+void print_map(map<int, map<string, map<string, int> > > m);
 
-void find_student_by_Name(map<int, map<string, map<string, int>>> m, string name);
+map<int, map<string, map<string, int> > > register_student(map<int, map<string, map<string, int> > > m, int ID, string name);
 
-map<int, map<string, map<string, int>>> addCourse(map<int, map<string, map<string, int>>> m, int ID, string course, int mark);
+void find_student_by_ID(map<int, map<string, map<string, int> > > m, int ID);
 
-map<int, map<string, map<string, int>>> modifyCourse(map<int, map<string, map<string, int>>> m, int ID, string course, string newCourse);
+void find_student_by_Name(map<int, map<string, map<string, int> > > m, string name);
 
-map<int, map<string, map<string, int>>> modifyMarks(map<int, map<string, map<string, int>>> m, int ID, string course, int mark);
+map<int, map<string, map<string, int> > > addCourse(map<int, map<string, map<string, int> > > m, int ID, string course, int mark);
 
-map<int, map<string, map<string, int>>> deleteStudent(map<int, map<string, map<string, int>>> m, int ID);
+map<int, map<string, map<string, int> > > modifyCourse(map<int, map<string, map<string, int> > > m, int ID, string course, string newCourse);
+
+map<int, map<string, map<string, int> > > modifyMarks(map<int, map<string, map<string, int> > > m, int ID, string course, int mark);
+
+map<int, map<string, map<string, int> > > deleteStudent(map<int, map<string, map<string, int> > > m, int ID);
 
 void displayMenu();
 

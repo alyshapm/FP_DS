@@ -1,14 +1,15 @@
 #include <iostream>
 #include <map>
 #include<vector>
+#include<string>
 #include "Map.hpp"
 
 using namespace std;
 
-void print_map(map<int, map<string, map<string, int>>> m)
+void print_map(map<int, map<string, map<string, int> > > m)
 {
-    map<int, map<string, map<string, int>>>::iterator itr;
-    map<string, map<string, int>>::iterator ptr;
+    map<int, map<string, map<string, int> > >::iterator itr;
+    map<string, map<string, int> >::iterator ptr;
     map<string, int>::iterator rtr;
 
     for (itr = m.begin(); itr != m.end(); itr++) {
@@ -26,16 +27,16 @@ void print_map(map<int, map<string, map<string, int>>> m)
     }
 }
 
-map<int, map<string, map<string, int>>> register_student(map<int, map<string, map<string, int>>> m, int ID, string name) {
-        m.insert(pair<int, map<string, map<string, int>>>(ID, map<string, map<string, int>>()));
-        m[ID].insert(pair<string, map<string, int>>(name, map<string, int>()));
+map<int, map<string, map<string, int> > > register_student(map<int, map<string, map<string, int> > > m, int ID, string name) {
+        m.insert(pair<int, map<string, map<string, int> > >(ID, map<string, map<string, int> >()));
+        m[ID].insert(pair<string, map<string, int> >(name, map<string, int>()));
         m[ID][name].insert(pair<string, int>("none", 0));
         return m;
 }
 
-void find_student_by_ID(map<int, map<string, map<string, int>>> m, int ID) {
-    map<int, map<string, map<string, int>>>::iterator itr = m.find(ID);
-    map<string, map<string, int>>::iterator ptr;
+void find_student_by_ID(map<int, map<string, map<string, int> > > m, int ID) {
+    map<int, map<string, map<string, int> > >::iterator itr = m.find(ID);
+    map<string, map<string, int> >::iterator ptr;
     map<string, int>::iterator rtr;
 
     if (itr != m.end()){
@@ -51,9 +52,9 @@ void find_student_by_ID(map<int, map<string, map<string, int>>> m, int ID) {
      }
 }
 
-void find_student_by_Name(map<int, map<string, map<string, int>>> m, string name) {
+void find_student_by_Name(map<int, map<string, map<string, int> > > m, string name) {
     bool found;
-    map<string, map<string, int>>::iterator ptr;
+    map<string, map<string, int> >::iterator ptr;
     map<string, int>::iterator rtr;
 
 
@@ -74,9 +75,9 @@ void find_student_by_Name(map<int, map<string, map<string, int>>> m, string name
     }
 }
 
-map<int, map<string, map<string, int>>> addCourse(map<int, map<string, map<string, int>>> m, int ID, string course, int mark) {
-    map<int, map<string, map<string, int>>>::iterator itr = m.find(ID);
-    map<string, map<string, int>>::iterator ptr;
+map<int, map<string, map<string, int> > > addCourse(map<int, map<string, map<string, int> > > m, int ID, string course, int mark) {
+    map<int, map<string, map<string, int> > >::iterator itr = m.find(ID);
+    map<string, map<string, int> >::iterator ptr;
     map<string, int>::iterator rtr;
 
     if (itr != m.end()){
@@ -98,9 +99,9 @@ map<int, map<string, map<string, int>>> addCourse(map<int, map<string, map<strin
         }
 }
 
-map<int, map<string, map<string, int>>> modifyCourse(map<int, map<string, map<string, int>>> m, int ID, string course, string newCourse) {
-    map<int, map<string, map<string, int>>>::iterator itr = m.find(ID);
-    map<string, map<string, int>>::iterator ptr;
+map<int, map<string, map<string, int> > > modifyCourse(map<int, map<string, map<string, int> > > m, int ID, string course, string newCourse) {
+    map<int, map<string, map<string, int> > >::iterator itr = m.find(ID);
+    map<string, map<string, int> >::iterator ptr;
     map<string, int>::iterator rtr;
     int temp;
 
@@ -121,9 +122,9 @@ map<int, map<string, map<string, int>>> modifyCourse(map<int, map<string, map<st
         }
 }
 
-map<int, map<string, map<string, int>>> modifyMarks(map<int, map<string, map<string, int>>> m, int ID, string course, int mark) {
-    map<int, map<string, map<string, int>>>::iterator itr = m.find(ID);
-    map<string, map<string, int>>::iterator ptr;
+map<int, map<string, map<string, int> > > modifyMarks(map<int, map<string, map<string, int> > > m, int ID, string course, int mark) {
+    map<int, map<string, map<string, int> > >::iterator itr = m.find(ID);
+    map<string, map<string, int> >::iterator ptr;
     map<string, int>::iterator rtr;
 
     if (itr != m.end()){
@@ -141,7 +142,7 @@ map<int, map<string, map<string, int>>> modifyMarks(map<int, map<string, map<str
         }
 }
 
-map<int, map<string, map<string, int>>> deleteStudent(map<int, map<string, map<string, int>>> m, int ID) {
+map<int, map<string, map<string, int> > > deleteStudent(map<int, map<string, map<string, int> > > m, int ID) {
     if (m.find(ID) != m.end()) {
         m.erase(ID);
     }
@@ -160,7 +161,7 @@ void displayMenu(){
 
 int main()
 {
-    map<int, map<string, map<string, int>>> m;
+    map<int, map<string, map<string, int> > > m;
     int choice, ID, mark;
     string name, course, newCourse;
 

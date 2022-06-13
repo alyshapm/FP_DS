@@ -10,7 +10,6 @@ using namespace std;
 class Student {
 public:
     string name;
-    int numOfcourses = 0;
     vector<string> courses;
     vector<int> marks;
     unsigned long id;
@@ -20,18 +19,8 @@ public:
     void deleteCourse(string course);
     void modifyCourse(string course, string newCourse);
     void modifyMark(string course, int mark);
-
+    void setToNull(unsigned long id);
 };
-
-void Student::printReport();
-
-void Student::addCourse(string course, int mark);
-
-void Student::deleteCourse(string course);
-
-void Student::modifyCourse(string course, string newCourse);
-
-void Student::modifyMark(string course, int mark);
 
 void displayMenu();
 

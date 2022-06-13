@@ -1,6 +1,12 @@
 #ifndef QUEUE_HPP
 #define QUEUE_HPP
 
+#include <iostream>
+#include <queue>
+#include <string>
+
+using namespace std;
+
 template <typename T>
 void printQueueElements(queue<T> Q);
 

@@ -5,23 +5,23 @@
 
 using namespace std;
 
-class Student {
-public:
-    string name;
-    int numOfcourses = 0;
-    vector<string> courses;
-    vector<int> marks;
-    unsigned long id;
-    Student() {
-        id = -1;
-    }
-    void printReport();
-    void addCourse(string course, int mark);
-    void deleteCourse(string course);
-    void modifyCourse(string course, string newCourse);
-    void modifyMark(string course, int mark);
+// class Student {
+//     public:
+//         string name;
+//         int numOfcourses = 0;
+//         vector<string> courses;
+//         vector<int> marks;
+//         unsigned long id;
+//         Student() {
+//             id = -1;
+//         }
+//         void printReport();
+//         void addCourse(string course, int mark);
+//         void deleteCourse(string course);
+//         void modifyCourse(string course, string newCourse);
+//         void modifyMark(string course, int mark);
 
-};
+// };
 
 void Student::printReport() {
     cout << "Name: " << name << "    Student ID: " << id << endl;
@@ -47,12 +47,16 @@ void Student::addCourse(string course, int mark) {
 
 void Student::deleteCourse(string course) {
     bool found = false;
+    if (courses.size() == 0) {
+        cout << "No courses were added yet" << endl;
+        return;
+    }
 
     for (int i = 0; i < courses.size(); i++) {
         if (courses[i] == course) {
             found = true;
-            courses.erase(courses.begin() + i - 1);
-            marks.erase(marks.begin() + i - 1);
+            courses.erase(courses.begin() + i);
+            marks.erase(marks.begin() + i);
         }
     }
 
@@ -63,6 +67,11 @@ void Student::deleteCourse(string course) {
 
 void Student::modifyCourse(string course, string newCourse) {
     bool found = false;
+
+    if (courses.size() == 0) {
+        cout << "No courses were added yet" << endl;
+        return;
+    }
 
     for (int i = 0; i < courses.size(); i++) {
         if (courses[i] == course) {
@@ -78,6 +87,11 @@ void Student::modifyCourse(string course, string newCourse) {
 
 void Student::modifyMark(string course, int mark) {
     bool found = false;
+
+    if (courses.size() == 0) {
+        cout << "No courses were added yet" << endl;
+        return;
+    }
 
     for (int i = 0; i < courses.size(); i++) {
         if (courses[i] == course) {
@@ -95,7 +109,7 @@ void Student::modifyMark(string course, int mark) {
 void displayMenu(){
     printf("ATTENDANCE SYSTEM");
     printf("\n1. Add student");
-    printf("\n2. Display student report");
+    printf("\n2. Display student report");xz
     printf("\n3. Add course");
     printf("\n4. Modify");
     printf("\n5. Delete");
@@ -141,6 +155,14 @@ int searchStudent(unsigned long id, Student student_list[]) {
     cout << "This student is not in the list" << endl;
     return -1;
 }
+
+void Student::setToNull(unsigned long id) {
+    name = "";
+    id = -1;
+    courses.clear();
+    marks.clear();
+    }
+
 
 /* ----- MAIN ----- */
 
