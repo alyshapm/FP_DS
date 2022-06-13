@@ -4,11 +4,13 @@
 */ 
 
 #include <iostream>
-#include <cstdio>
+#include <cstdio> /// change to c++
+#include "Linked_list.cpp"
+
 using namespace std;
 
 // --- METHODS --- 
-struct Student{
+struct Student{ // change to class
     // int rollNo;
     char Name[20];
     char Phone[100];
@@ -20,7 +22,7 @@ struct Student{
 void addStudent(char* Name, char* Phone, char* noStudents, float marks[]){
     struct Student *student = (struct Student*) malloc(sizeof(struct Student)); // allocates memory to a new node
     // student->rollNo = rollNo;
-    strcpy(student->Name, Name);
+    strcpy(student->Name, Name); /// change to c++
     strcpy(student->Phone, Phone);
     strcpy(student->noStudents, noStudents);
     student->next = NULL;
@@ -90,7 +92,8 @@ void displayMenu(){
     printf("\n1. Add student");
     printf("\n2. Display student report");
     printf("\n3. Add marks");
-    printf("\n4. Exit");
+    printf("\n4. Print one student");
+    printf("\n5. Exit");
 }
 
 void menu(int option){
@@ -115,7 +118,7 @@ void menu(int option){
             addStudent(Name, Phone, noStudents, Marks);
             break;
         case 2:
-            case 5: studentsReport(head); break;
+            studentsReport(head); break;
         case 3:
             printf("Enter student name: ");
             scanf("%s", Name);
@@ -126,6 +129,12 @@ void menu(int option){
             addMark(Name, n, Mark);
             break;
         case 4:
+            printf("Enter Name to Print: ");
+            scanf("%s", Name);
+            printf("Name \tStudent Number \tStudent Marks\n\n");
+            printStudentReport(Name, head);
+            break;
+        case 5:
             exit = 1;
             break;
     }

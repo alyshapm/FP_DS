@@ -1,6 +1,7 @@
 #include <iostream>
 #include<vector>
 #include <iomanip>
+#include "Array.hpp"
 
 using namespace std;
 
@@ -141,7 +142,7 @@ int searchStudent(unsigned long id, Student student_list[]) {
     return -1;
 }
 
-
+/* ----- MAIN ----- */
 
 int main(){
     Student student_list[30];
