@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "StudentC.h"
 
 using namespace std;
 
@@ -83,7 +83,7 @@ void Student::modifyMark(string course, int mark) {
     }
 }
 
-void Student::setToNull(unsigned long id) {
+void Student::setToNull() {
     name = "";
     id = -1;
     courses.clear();

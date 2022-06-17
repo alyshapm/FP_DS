@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "StudentC.h"
 
 #include <iostream>
 #include<vector>
@@ -10,23 +10,23 @@ int getHashKey(unsigned ID) {
     return ID % 30;
 }
 
-void addStudent(unsigned long ID, string n, Student student_list[]){
+bool addStudent(unsigned long ID, string n, Student student_list[]){
     int hkey;
     hkey = getHashKey(ID);
 
     for(int i=0; i < 30; i++) {
         if (student_list[hkey].id == ID) {
             cout << "This ID is already assigned" << endl;
-            return;
+            return false;
         } else if(student_list[hkey].id == -1){
             student_list[hkey].id = ID;
             student_list[hkey].name = n;
-//            cout << "This student has been added" << endl;
-            return;
+            return true;
         }
         hkey = (hkey+1) % 30;
     }
     cout << "The table is already full" << endl;
+    return false;
 }
 
 int searchStudent(unsigned long id, Student student_list[]) {
@@ -35,14 +35,14 @@ int searchStudent(unsigned long id, Student student_list[]) {
 
     for(int i=0; i < 30; ) {
         if(student_list[hkey].id == -1){
-            cout << "This student is not in the list" << endl;
+            cout << "This student is not in the list1" << endl;
             return -1;
         } else if (student_list[hkey].id == id) {
             return hkey;
         }
         hkey = (hkey+1) % 30;
     }
-    cout << "This student is not in the list" << endl;
+    cout << "This student is not in the list2" << endl;
     return -1;
 }
 

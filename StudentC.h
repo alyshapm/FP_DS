@@ -21,7 +21,7 @@ public:
     void deleteCourse(string course);
     void modifyCourse(string course, string newCourse);
     void modifyMark(string course, int mark);
-    void setToNull(unsigned long id);
+    void setToNull();
 };
 
 #endif // STUDENT_H_INCLUDED
