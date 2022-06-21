@@ -20,7 +20,7 @@ void getTime(clock_t start, clock_t endt) {
 
 int main()
 {
-    vector<vector<string>> student_info1
+    vector<vector<string> > student_info1
     {
         {"2502049706", "Arish Madataly", "Math", "45", "OOP", "85", "Data Structure", "89", "Physics", "98", "Chemistry", "78"},
         {"2000868293", "Ywain Lucas", "Math", "28", "OOP", "87", "Data Structure", "96", "Physics", "58", "Chemistry", "88"},
@@ -40,7 +40,7 @@ int main()
         {"2510316472", "Medousa Mertens", "Math", "24", "OOP", "75", "Data Structure", "56", "Physics", "43", "Chemistry", "65"},
         {"2528310820", "Miroslava MacDermott", "Math", "52", "OOP", "12", "Data Structure", "75", "Physics", "47", "Chemistry", "54"},
         {"2489701836", "Flora Janson", "Math", "60", "OOP", "70", "Data Structure", "41", "Physics", "82", "Chemistry", "75"},
-        {"2320898036", "Marie-Françoise Beck", "Math", "12", "OOP", "14", "Data Structure", "5", "Physics", "8", "Chemistry", "25"},
+        {"2320898036", "Marie-Franï¿½oise Beck", "Math", "12", "OOP", "14", "Data Structure", "5", "Physics", "8", "Chemistry", "25"},
         {"2515900124", "Benigno Mancuso", "Math", "17", "OOP", "26", "Data Structure", "39", "Physics", "69", "Chemistry", "100"},
         {"2243624098", "Sara Gustafsson", "Math", "14", "OOP", "56", "Data Structure", "23", "Physics", "79", "Chemistry", "94"},
         {"2376356683", "Cyrus Chancellor", "Math", "74", "OOP", "85", "Data Structure", "83", "Physics", "39", "Chemistry", "31"},
@@ -56,7 +56,7 @@ int main()
     };
 
     Student student_list[30];
-    map<unsigned long, map<string, map<string, int>>> m;
+    map<unsigned long, map<string, map<string, int> > > m;
     unsigned long ID;
     string name, course1, course2, course3, course4, course5;
     int mark1, mark2, mark3, mark4, mark5, choice, index, numAddedStudent;
