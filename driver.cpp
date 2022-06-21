@@ -2,6 +2,7 @@
 #include "ArrayC.cpp"
 #include "MapC.cpp"
 
+
 #include <iostream>
 #include <map>
 #include<vector>
@@ -51,7 +52,7 @@ int main()
         {"2225416823", "Soline Aarse", "Math", "14", "Math", "56", "Data Structure", "83", "Physics", "74", "Chemistry", "12"}, //twice assigned subject
         {"2583648707", "Arif Dob", "Math", "99", "OOP", "94", "Data Structure", "93", "Physics", "99", "Chemistry", "32"},
         {"2583648703", "Keylor Joan", "Math", "97", "OOP", "94", "Data Structure", "93", "Physics", "99", "Chemistry", "32"},
-        {"2583648703", "Alysha Maulidina", "Math", "97", "OOP", "94", "Data Structure", "93", "Physics", "99", "Chemistry", "32"}
+        {"2583648706", "Alysha Maulidina", "Math", "97", "OOP", "94", "Data Structure", "93", "Physics", "99", "Chemistry", "32"}
     };
 
     Student student_list[30];
@@ -60,11 +61,10 @@ int main()
     string name, course1, course2, course3, course4, course5;
     int mark1, mark2, mark3, mark4, mark5, choice, index, numAddedStudent;
     clock_t start1, endt1, start2, endt2;
-//    , start3, endt3, start4, endt4, start5, endt5, start6, endt6
 
 
     while (choice != 4){
-    cout << "Choose a number of people to stimulate the speed" << endl;
+    cout << "Choose a number of student to stimulate the speed" << endl;
     cout << "1. 10" << endl;
     cout << "2. 20" << endl;
     cout << "3. 30" << endl;
@@ -74,16 +74,12 @@ int main()
 
     switch(choice) {
     case 1:
-//        addStudents(m, student_list, 10, student_info1);
-        numAddedStudent = 0;
         for (int i = 0; i < 10; i++){
             ID = stoul(student_info1[i][0], nullptr, 0);
             name = student_info1[i][1];
 
             m = register_student(m, ID, name);
-            if (addStudent(ID, name, student_list)){
-               numAddedStudent++;
-            } else {
+            if (!addStudent(ID, name, student_list)){
                 cout << "This ID is already assigned" << endl;
             }
         }
@@ -149,32 +145,26 @@ int main()
         cout << endl;
         cout << "Map time for 10 students: ";
         getTime(start1, endt1);
-        cout << endl;
 
         cout << "Array time for 10 students: ";
         getTime(start2, endt2);
+        cout << endl;
 
-        for (int i = numAddedStudent - 1; i >= 0; i--) {
+        for (int i = 0; i < 30; i++) {
             // it goes backward to avoid an error
             ID = stoul(student_info1[i][0], nullptr, 0);
             m = deleteStudent(m, ID);
 
-            if (searchStudent(ID, student_list) != -1) {
-              index = searchStudent(ID, student_list);
-              student_list[index].setToNull();
-            }
+            deleteStudentI(ID, student_list);
         }
         break;
     case 2:
-        numAddedStudent = 0;
         for (int i = 0; i < 20; i++){
             ID = stoul(student_info1[i][0], nullptr, 0);
             name = student_info1[i][1];
 
             m = register_student(m, ID, name);
-            if (addStudent(ID, name, student_list)){
-               numAddedStudent++;
-            } else {
+            if (!addStudent(ID, name, student_list)){
                 cout << "This ID is already assigned" << endl;
             }
         }
@@ -240,32 +230,26 @@ int main()
         cout << endl;
         cout << "Map time for 20 students: ";
         getTime(start1, endt1);
-        cout << endl;
 
         cout << "Array time for 20 students: ";
         getTime(start2, endt2);
+        cout << endl;
 
-        for (int i = numAddedStudent - 1; i >= 0; i--) {
+        for (int i = 0; i < 30; i++) {
             // it goes backward to avoid an error
             ID = stoul(student_info1[i][0], nullptr, 0);
             m = deleteStudent(m, ID);
 
-            if (searchStudent(ID, student_list) != -1) {
-              index = searchStudent(ID, student_list);
-              student_list[index].setToNull();
-            }
+            deleteStudentI(ID, student_list);
         }
         break;
     case 3:
-        numAddedStudent = 0;
         for (int i = 0; i < 30; i++){
             ID = stoul(student_info1[i][0], nullptr, 0);
             name = student_info1[i][1];
 
             m = register_student(m, ID, name);
-            if (addStudent(ID, name, student_list)){
-               numAddedStudent++;
-            } else {
+            if (!addStudent(ID, name, student_list)){
                 cout << "This ID is already assigned" << endl;
             }
         }
@@ -331,20 +315,17 @@ int main()
         cout << endl;
         cout << "Map time for 30 students: ";
         getTime(start1, endt1);
-        cout << endl;
 
         cout << "Array time for 30 students: ";
         getTime(start2, endt2);
+        cout << endl;
 
-        for (int i = numAddedStudent - 1; i >= 0; i--) {
+        for (int i = 0; i < 30; i++) {
             // it goes backward to avoid an error
             ID = stoul(student_info1[i][0], nullptr, 0);
             m = deleteStudent(m, ID);
 
-            if (searchStudent(ID, student_list) != -1) {
-              index = searchStudent(ID, student_list);
-              student_list[index].setToNull();
-            }
+            deleteStudentI(ID, student_list);
         }
         break;
     case 4:

@@ -1,23 +1,24 @@
-/* 
+/*
     STUDENT ATTENDANCE SYSTEM USING LINKED LIST (test 1)
     to fix: input validation/exceptions, add other functions
-*/ 
+*/
 
 #include <iostream>
 #include <cstdio> /// change to c++
-#include "Linked_list.cpp"
+#include "Linked_list.hpp"
+#include <cstring>
 
 using namespace std;
 
-// --- METHODS --- 
-struct Student{ // change to class
-    // int rollNo;
-    char Name[20];
-    char Phone[100];
-    float Marks[2];
-    char noStudents[100];
-    struct Student *next;
-} *head;
+// --- METHODS ---
+//struct Student{ // change to class
+//    // int rollNo;
+//    char Name[20];
+//    char Phone[100];
+//    float Marks[2];
+//    char noStudents[100];
+//    struct Student *next;
+//} *head;
 
 void addStudent(char* Name, char* Phone, char* noStudents, float marks[]){
     struct Student *student = (struct Student*) malloc(sizeof(struct Student)); // allocates memory to a new node
@@ -49,7 +50,7 @@ void addMark(char* Name, int courseNo, float mark){
             temp = temp->next;
         }
     }
-} 
+}
 
 void printStudentReport(char* Name, struct Student* temp){
     int j;
@@ -69,24 +70,24 @@ void studentsReport(struct Student *temp){
     temp = head;
     printf("THE REPORT OF ALL STUDENTS IS : \n\n");
     printf("Name \tStudent Number \tStudent Marks\n\n");
-    
+
     while (temp != NULL){
         printf("%s \t\t%s \n",
                temp->Name, temp->noStudents);
-        
+
         for (j = 0; j < 2; j++)
-            
+
         {
             printf("\t\t\t\tMarks[%d] = %.2f %%\n\n",
                    j+1, temp->Marks[j]);
         }
-        
+
         temp = temp->next;
     }
     return;
 }
 
-// --- MENU --- 
+// --- MENU ---
 void displayMenu(){
     printf("ATTENDANCE SYSTEM (LINKED LIST). Enter:");
     printf("\n1. Add student");

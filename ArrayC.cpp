@@ -33,7 +33,7 @@ int searchStudent(unsigned long id, Student student_list[]) {
     int hkey;
     hkey = getHashKey(id);
 
-    for(int i=0; i < 30; ) {
+    for(int i=0; i < 30; i++) {
         if(student_list[hkey].id == -1){
             cout << "This student is not in the list1" << endl;
             return -1;
@@ -46,6 +46,13 @@ int searchStudent(unsigned long id, Student student_list[]) {
     return -1;
 }
 
+void deleteStudentI(unsigned long id, Student student_listU[]){
+    for(int i = 0; i < 30 ; i++) {
+        if (student_listU[i].id == id) {
+            student_listU[i].setToNull();
+        }
+    }
+}
 
 
 
