@@ -5,8 +5,11 @@
 
 #include <iostream>
 #include <cstdio> /// change to c++
+<<<<<<< Updated upstream
 #include "Linked_list.hpp"
 #include <cstring>
+=======
+>>>>>>> Stashed changes
 
 using namespace std;
 
